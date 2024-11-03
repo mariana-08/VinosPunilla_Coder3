@@ -22,7 +22,7 @@ const vinos = [
 
     new Vino(2, "Viarago", 800, 2019, "Se destaca por ser un varietal 100% Malbec, que ha tenido una crianza en barricas de roble por 12 meses.", "assets/img/vinos/Viarago/Viarago-MalbecRoble.jpg"),
 
-    new Vino(3, "Prima Terra", 900,2021, "Presenta un color rojo profundo y brillante, con una lágrima bien densa. \nTiene un envejecimiento de 12 meses en barricas de madera, lo que le aporta estructura en boca y notas de tabaco y vainilla.", "assets/img/vinos/famiglia/Primaterra.jpg"),
+    new Vino(3, "Prima Terra", 900,2021, "Presenta un color rojo profundo y brillante, con una lágrima bien densa. \nTiene un envejecimiento de 12 meses en barricas de madera, lo que le aporta estructura en boca y notas de tabaco y vainilla.", "assets/img/vinos/Famiglia/Primaterra.jpg"),
 
     new Vino(4, "Paso Viejo", 1000,2022, "De color rojo púrpura, con matices rubí y aromas reminiscentes a pequeños frutos rojos como frambuesas, grosellas y ciruelas.", "assets/img/vinos/Caroyense/PasoViejo-Cabernet.jpg"),
     
@@ -30,13 +30,13 @@ const vinos = [
     
     new Vino(6, "Socavones Cabernet", 1200, 2021,"Su sabor es intenso y complejo, destacando nuevamente las notas de frutos rojos y negros, junto con especias y toques de roble.", "assets/img/vinos/Terra/Socavones-Cabernet.jpg" ),
     
-    new Vino(7, "Viarago Blend", 1300,2018, "es un vino premium que se caracteriza por su mezcla exclusiva de variedades, ofreciendo un sabor profundo y sofisticado, ideal para ocasiones especiales.", "assets/img/vinos/Viarago/ViaragoBlend.jpg"),
+    new Vino(7, "Viarago Blend", 1300,2018, "es un vino premium que se caracteriza por su mezcla exclusiva de variedades, ofreciendo un sabor profundo y sofisticado, ideal para ocasiones especiales.", "assets/img/vinos/Viarago/Viaragoblend.jpg"),
     
-    new Vino(8, "Paso Viejo Tannat", 1400, 2017, "Presenta aromas a frutos rojos y negros maduros, además de notas especiadas, lo que lo convierte en una opción de alta calidad para los amantes del vino.", "assets/img/vinos/Caroyense/PasoViejo-Tannat.jpg"),
+    new Vino(8, "Paso Viejo Tannat", 1400, 2017, "Presenta aromas a frutos rojos y negros maduros, además de notas especiadas, lo que lo convierte en una opción de alta calidad para los amantes del vino.", "assets/img/vinos/Caroyense/Pasoviejo-Tannat.jpg"),
    
     new Vino(9, "Navira Blend", 1500,2016, "combina diferentes variedades de uva. ofrece un perfil de sabor con notas de frutas rojas, hierbas y especias.", "assets/img/vinos/Terra/Navira-Blend.jpg"),
     
-    new Vino(10, "Paso Viejo Malbec", 1600, 2015, "Su color rojo rubí intenso con tintes violáceos. El aroma es intenso, recuerda a fresas y frambuesa seguido de frutos secos como nueces y avellanas. Vino de cuerpo medio, elegante, aterciopelado y bien equilibrado.","assets/img/vinos/Caroyense/PasoViejo-Malbec.jpg" ),
+    new Vino(10, "Paso Viejo Malbec", 1600, 2015, "Su color rojo rubí intenso con tintes violáceos. El aroma es intenso, recuerda a fresas y frambuesa seguido de frutos secos como nueces y avellanas. Vino de cuerpo medio, elegante, aterciopelado y bien equilibrado.","assets/img/vinos/Caroyense/Pasoviejo-Malbec.jpg" ),
     
     new Vino(11, "Viñas de Caroya", 1700, 2002, "Tinto Frambua. Con aromas frutales", "assets/img/vinos/Caroyense/Vinas-Caroya.jpg"),
    
