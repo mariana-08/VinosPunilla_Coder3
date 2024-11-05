@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     carrito.forEach(vino => {
         const vinoRow = document.createElement('tr');
         vinoRow.innerHTML = `
-            <td><img src="${vino.imagen}" alt="${vino.nombre}" class="img-vinos"></td>
+            <td><img src="${vino.imagen}" alt="${vino.nombre}" class="img-vinos-carrito"></td>
             <td>${vino.nombre}</td>
             <td>$${vino.precio}</td>
         `;
