@@ -874,9 +874,9 @@ section {
 } */
 
 /*--------------------------------------------------------------
-# Portfolio
+# vinos carrito y compra 
 --------------------------------------------------------------*/
-
+/* 
 .vino {
 border: 1px solid #ccc;
 padding: 16px;
@@ -886,7 +886,112 @@ text-align: center;
 .vino img {
 max-width: 100%;
 height: auto;
+} */
+
+/* 02/11/24 */
+#vinos h4.tit-card {
+  font-family: 'Poppins';
+  color: rgba(45, 53, 69, 0.9);
+  font-size: 1.5rem;
+  font-weight: 600;
 }
+
+#vinos a.btn-comprar {
+  background: #701030; 
+  border: 0;
+  padding: 5px 10px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+  margin: 10px;
+}
+
+#vinos a.btn-comprar:hover {
+  background: #BB0F4B;
+}
+
+#vinos a.btn-agregar  {
+  background: #BB0F4B;  
+  border: 0;
+  padding: 5px 10px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+#vinos a.btn-agregar.agregar:hover {
+  background: #701030;
+}
+/* dentro de carrito.html */
+.contenedor-principal {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.contenedor-carrito {
+  flex: 3;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.img-vinos{
+  width: 100%;
+  height: auto;
+}
+
+.img-vinos-carrito {
+  width: 220px;
+  height: auto;
+}
+
+.resumen-compra {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-left: 20px;
+  text-align: center;
+}
+
+#finalizar-compra {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#finalizar-compra:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+/* 
+.vino-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+}
+.img-vinos {
+  width: 100%;
+  height: auto;
+} */
+
+
 
 /* .portfolio .btn-comprar {
     background: #fff;

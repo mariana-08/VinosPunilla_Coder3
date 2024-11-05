@@ -36,7 +36,7 @@ class Tienda {
             vinoDiv.querySelector('.img-vinos').alt = vino.nombre;
             vinoDiv.querySelector('.tit-card').textContent = vino.nombre;
             vinoDiv.querySelector('.descripcion').textContent = vino.bajada;
-            vinoDiv.querySelector('.anio-anios').innerHTML = `Año de Producción: ${vino.anioProduccion} Años de añejamiento: ${vino.calcularAniosCosecha()}`;
+            vinoDiv.querySelector('.anio-anios').innerHTML = `Año de Producción: ${vino.anioProduccion} <br> Maduración: ${vino.calcularAniosCosecha ? vino.calcularAniosCosecha() : 'N/A'} años`;
             vinoDiv.querySelector('.precio-vin').textContent = `Precio: $${vino.precio}`;
             vinoDiv.querySelector('.comprar').setAttribute('data-id', vino.id);
             vinoDiv.querySelector('.agregar').setAttribute('data-id', vino.id);
@@ -49,7 +49,7 @@ class Tienda {
     }
 
     agregarEventos() {
-        document.querySelectorAll('.comprar').forEach(button => {
+        document.querySelectorAll('.agregar').forEach(button => {
             button.addEventListener('click', (event) => {
                 event.preventDefault();
                 const id = parseInt(event.target.getAttribute('data-id'));
@@ -57,7 +57,7 @@ class Tienda {
             });
         });
 
-        document.querySelectorAll('.agregar').forEach(button => {
+        document.querySelectorAll('.comprar').forEach(button => {
             button.addEventListener('click', (event) => {
                 event.preventDefault();
                 const id = parseInt(event.target.getAttribute('data-id'));
@@ -70,7 +70,7 @@ class Tienda {
         const vino = this.vinos.find(v => v.id === id);
         if (vino) {
             this.carrito.push(vino);
-            alert(`${vino.nombre} ha sido agregado al carrito.`);
+            alert(`${vino.nombre} ha sido agregado al carrito.\nPrecio: $${vino.precio}`);
         }
     }
 
@@ -78,7 +78,8 @@ class Tienda {
         const vino = this.vinos.find(v => v.id === id);
         if (vino) {
             this.carrito.push(vino);
-            this.mostrarCarrito();
+            localStorage.setItem('carrito', JSON.stringify(this.carrito));
+            window.location.href = 'carrito.html';
         }
     }
 
@@ -87,10 +88,10 @@ class Tienda {
             alert("No tienes vinos en el carrito.");
             return;
         } else {
-            let lista_vinos = "Lista con detalle de cosecha:\n";
+            let lista_vinos = "Detalle de carrito:\n";
             let sumaCarrito = 0;
             this.carrito.forEach(vino => {
-                lista_vinos += `${vino.nombre} - $${vino.precio}. Tiempo de cosecha: ${vino.calcularAniosCosecha()} años\n`;
+                lista_vinos += `${vino.nombre} - $${vino.precio}\n`;
                 sumaCarrito += vino.precio;
             });
             const fechaActual = new Date();
@@ -99,6 +100,11 @@ class Tienda {
     }
 }
 
-// Crea una instancia de la tienda y empieza el proceso
-const tienda = new Tienda(vinos);
-tienda.iniciarTienda();
+// Cargar los datos de vinos.json y crear una instancia de Tienda
+fetch('mi_JS/vinos.json')
+    .then(response => response.json())
+    .then(data => {
+        const tienda = new Tienda(data);
+        tienda.iniciarTienda();
+    })
+    // .catch(error => console.error('Error al cargar los datos:', error));
