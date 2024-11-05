@@ -27,30 +27,42 @@ class Tienda {
 
     mostrarVinos() {
         const contenedor = document.querySelector('.contenedor-vinos');
+        const plantilla = document.querySelector('.plantilla-vino');
+
         this.vinos.forEach(vino => {
-            const vinoDiv = document.createElement('div');
-            vinoDiv.classList.add('col-md-6', 'mb-3'); // col-md-6 para 2 columnas
-            vinoDiv.innerHTML = `
-                <div class="card h-100">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="${vino.imagen}" class="img-fluid rounded-start" alt="${vino.nombre}">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h3 class="card-title">${vino.nombre}</h3>
-                                <p class="card-text">Precio: $${vino.precio}</p>
-                                <p class="card-text">Año de Producción: ${vino.anioProduccion}</p>
-                                <p class="card-text">Años de añejamiento: ${vino.calcularAniosCosecha()}</p>
-                                <p class="card-text">${vino.bajada}</p>
-                                <button class="btn btn-primary" onclick="tienda.agregarAlCarrito(${vino.id})">Agregar al carrito</button>
-                                <button class="btn btn-success" onclick="tienda.comprarAhora(${vino.id})">Comprar ahora</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
+            const vinoDiv = plantilla.cloneNode(true);
+            vinoDiv.classList.remove('d-none');
+            vinoDiv.querySelector('.img-vinos').src = vino.imagen;
+            vinoDiv.querySelector('.img-vinos').alt = vino.nombre;
+            vinoDiv.querySelector('.tit-card').textContent = vino.nombre;
+            vinoDiv.querySelector('.descripcion').textContent = vino.bajada;
+            vinoDiv.querySelector('.anio-anios').innerHTML = `Año de Producción: ${vino.anioProduccion} Años de añejamiento: ${vino.calcularAniosCosecha()}`;
+            vinoDiv.querySelector('.precio-vin').textContent = `Precio: $${vino.precio}`;
+            vinoDiv.querySelector('.comprar').setAttribute('data-id', vino.id);
+            vinoDiv.querySelector('.agregar').setAttribute('data-id', vino.id);
+
             contenedor.appendChild(vinoDiv);
+        });
+
+        // Agregar eventos a los botones
+        this.agregarEventos();
+    }
+
+    agregarEventos() {
+        document.querySelectorAll('.comprar').forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                const id = parseInt(event.target.getAttribute('data-id'));
+                this.agregarAlCarrito(id);
+            });
+        });
+
+        document.querySelectorAll('.agregar').forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                const id = parseInt(event.target.getAttribute('data-id'));
+                this.comprarAhora(id);
+            });
         });
     }
 
