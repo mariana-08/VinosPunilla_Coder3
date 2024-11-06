@@ -61,11 +61,12 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
-          <li><a class="nav-link scrollto" href="#nosotros">Nosotros </a></li>
-          <li><a class="nav-link scrollto" href="#clientes">Bodegas</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Vinos</a></li>  
-          <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
+          <li><a class="nav-link scrollto " href="index.html">Inicio</a></li>
+          <li><a class="nav-link scrollto" href="index.html#nosotros">Nosotros </a></li>
+          <li><a class="nav-link scrollto" href="index.html#clientes">Bodegas</a></li>
+          <li><a class="nav-link scrollto " href="index.html#portfolio">Vinos</a></li>  
+          <li><a class="nav-link scrollto active " href="">Carrito</a></li> 
+          <li><a class="nav-link scrollto" href="index.html#contact">Contacto</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -74,122 +75,50 @@
   </header><!-- End Header -->
 
  <!-- ======= Hero Section ======= -->
- <section id="hero" class="d-flex align-items-center justify-content-center">
-    <div class="container position-relative">
-      <!-- <h1>Vinos Punilla</h1> -->
-      <!-- <h2>Distribuidora y Vinoteca</h2> -->
-      <!-- <a href="#nosotros" class="btn-get-started scrollto">Comenzar</a> -->
+ <section id="hero2" class="d-flex align-items-center justify-content-center">
+    <div class="container position-relative">    
     </div>
-  </section><!-- End Hero -->
+  </section>
 
   <main id="main">
-
     <!-- seccion para el carrito -->
-      <section id="vinos" class="vinos mt-4">
+      <section id="carrito-vinos" class="carrito-vinos mt-4">
         <div class="container mt-4">
             <div class="section-title">
                 <h2 class="mt-4"> Carrito</h2>
                 <p>A continuación se detalla los productos seleccionados para comprar</p>
             </div>   
-            <div class="row  contenedor-principal">   
-                <div class="contenedor-carrito">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Imagen</th>
-                                <th>Nombre del vino</th>
-                                <th>Precio unitario</th>
-                                <!-- <th>Cantidad</th>
-                                <th>Subtotal</th>
-                                <th>Eliminar</th> -->
-                            </tr>
-                            <tbody id="carrito-items">
-                                <!-- carga la la lista -->
-                            </tbody>
-                        </thead>
+            <div class="row contenedor-principal">   
+                <div class="col-md-8 contenedor-carrito">
+                  <div class="table-responsive">
+                    <table class="table table-borderless">
+                      <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Nombre del vino</th>
+                            <th>Precio </th>
+                        </tr>
+                      </thead>
+                      <tbody id="carrito-items">
+                        <tr>
+                          <th scope="row" class="vino.imagen"> </th>
+                          <td class="vino.nombre"></td>
+                          <td class="vino.precio"> </td>                        
+                        </tr>
+                      </tbody>                        
                     </table>
+                  </div>
                 </div>
-                <div class="resumen-compra">
+                <div class="col-md-4 resumen-compra">
                     <h4>Resumen de la compra</h4>
-                    <p class="total-precio"> 0</p>
+                    <p class="suma-carrito"></p>
                     <button id="finalizar-compra">Finalizar Compra</button>
                 </div>                   
             </div>                       
         </div>
     </section>
-    <!-- fin seccion para el carrito -->  
-
-    <!-- ======= Contacto Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contacto</h2>
-          <p>Queres comprar o consultar ...</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-6">
-
-            <div class="row">
-              <div class="col-md-12">
-                <div class="info-box">
-                  <i class="bx bx-map"></i>
-                  <p>  Valle de Punilla <br> 
-                    Bialet Massé, Córdoba, Argentina
-                  </p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box mt-4">
-                  <i class="bx bx-envelope"></i>               
-                  <p><a href="mailto:vinospunilla@gmail.com">vinospunilla@gmail.com</a></p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box mt-4">
-                  <i class="bx bx-phone-call"></i>
-                  <p><a href="https://wa.me/543517723549?text=Hola%20quisiera%20consultar%20por%20los%20vinos">0351 772-3549</a></p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Teléfono" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">               
-                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="mensaje" rows="5" placeholder="Mensaje" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Cargando...</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Tu mensaje ha sido enviado. ¡Gracias!</div>
-              </div>
-              <div class="text-center">
-                <button type="submit" name="submit" id="submit" >Enviar mensaje</button>
-              </div>
-            </form>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
+    <!-- fin seccion para el carrito --> 
+  </main>
 
   <!-- ======= Footer ======= -->
   <footer id="footer">

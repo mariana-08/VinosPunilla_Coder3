@@ -38,15 +38,7 @@
         "anioProduccion": 2020,
         "bajada": "Es un vino exótico y refrescante, elaborado con la variedad de uva americana Isabella.",
         "imagen": "assets/img/vinos/Terra/Isabella.jpg"
-    },
-    {
-        "id": 5,
-        "nombre": "Isabella",
-        "precio": 1100,
-        "anioProduccion": 2020,
-        "bajada": "Es un vino exótico y refrescante, elaborado con la variedad de uva americana Isabella.",
-        "imagen": "assets/img/vinos/Terra/Isabella.jpg"
-    },
+    },   
     {
         "id": 6,
         "nombre": "Socavones Cabernet",
