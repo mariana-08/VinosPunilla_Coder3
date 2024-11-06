@@ -889,13 +889,19 @@ height: auto;
 } */
 
 /* 02/11/24 */
-#hero2 {
+#header.header-carrito {
+  background: rgba(55, 64, 85, 0.9);
+} 
+section#hero2 {
+  padding-top: 100px;
+}
+/* #hero2 {
   width: 100%;
   height: 80vh;
-  background: url("../img/hero3.jpg") top center;
+  background: url("../img/carrito.jpg") top center;
   background-size: cover;
   position: relative;
-}
+} */
 
 #vinos h4.tit-card {
   font-family: 'Poppins';
