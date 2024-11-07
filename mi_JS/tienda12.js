@@ -85,6 +85,7 @@ class Tienda {
         window.location.href = 'carrito.html';
     }
 
+    //metodo para seleccionar el orden de los precios
     selecionarOrden() {
         const orden = prompt("Selecciona el orden: \n A) de menor a mayor. \n B) de mayor a menor.").toLowerCase();
         if (orden === "a") {
@@ -93,7 +94,7 @@ class Tienda {
             this.filtrarPrecios(false);
         } else {
             alert("Opción no válida. Inténtalo de nuevo.");
-        }
+        } 
     }
 
     filtrarPrecios(ascendente) {
