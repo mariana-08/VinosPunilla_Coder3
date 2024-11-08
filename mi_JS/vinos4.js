@@ -56,5 +56,5 @@ const vinos = [
     
     new Vino(18, "Esperando Vientos", 2500, 2022, "Bodega La Matilde", "Es un vino tinto orgánico y biodinámico. Este vino refleja el compromiso con la naturaleza y la tradición vitivinícola, ofreciendo un perfil equilibrado y auténtico que seduce a los paladares más exigentes ","assets/img/vinos/Matilde/EsperandoVientos.jpg"),
    
-    new Vino(19, "Ladron de Corazones - Corte de Tintas", 2600, 2019, "Bodega La Matilde", "Vino de color rubí intenso, brillante. Aroma muy frutal, frutos rojos maduros. En boca es un vino de intensidad media, acidez equilibrada, final largo.", ".assets/img/vinos/Matilde/Ladron.jpg" ),
+    new Vino(19, "Ladron de Corazones - Corte de Tintas", 2600, 2019, "Bodega La Matilde", "Vino de color rubí intenso, brillante. Aroma muy frutal, frutos rojos maduros. En boca es un vino de intensidad media, acidez equilibrada, final largo.", "assets/img/vinos/Matilde/Ladron.jpg" ),
 ];

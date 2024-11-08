@@ -2,6 +2,7 @@ class Tienda {
     constructor(vinos) {
         this.vinos = vinos;
         this.carrito = [];
+        this.contadorCarrito = document.getElementById('carrito-contador');
     }
 
     iniciarTienda() {
@@ -72,7 +73,12 @@ class Tienda {
         if (vino) {
             this.carrito.push(vino);
             alert(`${vino.nombre} ha sido agregado al carrito.\nPrecio: $${vino.precio}`);
+            this.actualizarContadorCarrito();
         }
+    }
+
+    actualizarContadorCarrito() {
+        this.contadorCarrito.textContent = this.carrito.length;
     }
 
     comprarAhora() {
@@ -85,7 +91,6 @@ class Tienda {
         window.location.href = 'carrito.html';
     }
 
-    //metodo para seleccionar el orden de los precios
     selecionarOrden() {
         const orden = prompt("Selecciona el orden: \n A) de menor a mayor. \n B) de mayor a menor.").toLowerCase();
         if (orden === "a") {
@@ -94,7 +99,7 @@ class Tienda {
             this.filtrarPrecios(false);
         } else {
             alert("Opción no válida. Inténtalo de nuevo.");
-        } 
+        }
     }
 
     filtrarPrecios(ascendente) {
@@ -124,4 +129,3 @@ class Tienda {
 // Crear una instancia de Tienda con los datos de vinos.js
 const tienda = new Tienda(vinos);
 tienda.iniciarTienda();
-

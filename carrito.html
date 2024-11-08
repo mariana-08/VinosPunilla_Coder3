@@ -83,41 +83,39 @@
 
   <main id="main">
     <!-- seccion para el carrito -->
-      <section id="carrito-vinos" class="carrito-vinos ">
-        <div class="container ">
-            <div class="section-title">
-                <h2 class="carrito-ti"> Carrito</h2>
-                <p>A continuación se detalla los productos seleccionados para comprar</p>
-            </div>   
-            <div class="row contenedor-principal">   
-                <div class="col-md-8 contenedor-carrito">
+    <section id="carrito-vinos" class="carrito-vinos">
+      <div class="container">
+          <div class="section-title">
+              <h2 class="carrito-ti">Carrito</h2>
+              <p>A continuación se detalla los productos seleccionados para comprar</p>
+          </div>
+          <div class="row contenedor-principal">
+              <div class="col-md-8 contenedor-carrito">
                   <div class="table-responsive">
-                    <table class="table table-borderless">
-                      <thead>
-                        <tr>
-                            <th>Producto</th>
-                            <th>Nombre del vino</th>
-                            <th>Precio </th>
-                        </tr>
-                      </thead>
-                      <tbody id="carrito-items">
-                        <tr>
-                          <th scope="row" class="vino.imagen"> </th>
-                          <td class="vino.nombre"></td>
-                          <td class="vino.precio"> </td>                        
-                        </tr>
-                      </tbody>                        
-                    </table>
+                      <table class="table table-borderless">
+                          <thead>
+                              <tr>
+                                  <th>Producto</th>
+                                  <th>Nombre del vino</th>
+                                  <th>Precio</th>
+                                  <th>Cantidad</th>
+                                  <th>Total</th>
+                              </tr>
+                          </thead>
+                          <tbody id="carrito-items">
+                              <!-- Las filas se generarán dinámicamente -->
+                          </tbody>
+                      </table>
                   </div>
-                </div>
-                <div class="col-md-4 resumen-compra">
-                    <h4 class="tit-resumen">Resumen de la compra</h4>
-                    <p class="suma-carrito"></p>
-                    <button id="finalizar-compra">Finalizar Compra</button>
-                </div>                   
-            </div>                       
-        </div>
-    </section>
+              </div>
+              <div class="col-md-4 resumen-compra">
+                  <h4 class="tit-resumen">Resumen de la compra</h4>
+                  <p class="suma-carrito"></p>
+                  <button id="finalizar-compra">Finalizar Compra</button>
+              </div>
+          </div>
+      </div>
+  </section>
     <!-- fin seccion para el carrito --> 
   </main>
 

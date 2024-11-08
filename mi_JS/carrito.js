@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         carrito.forEach(vino => {
             const row = document.createElement('tr');
+
             const imgCell = document.createElement('th');
             imgCell.scope = 'row';
             const img = document.createElement('img');
@@ -27,15 +28,75 @@ document.addEventListener('DOMContentLoaded', () => {
             const priceCell = document.createElement('td');
             priceCell.textContent = `$${vino.precio}`;
 
+            const quantityCell = document.createElement('td');
+            const quantityWrapper = document.createElement('div');
+            quantityWrapper.classList.add('d-flex', 'align-items-center');
+
+            const decrementBtn = document.createElement('button');
+            decrementBtn.textContent = '-';
+            decrementBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'me-2');
+            decrementBtn.addEventListener('click', () => {
+                decrementarCantidad(vino.id);
+            });
+
+            const quantityText = document.createElement('span');
+            quantityText.textContent = vino.cantidad;
+            quantityText.classList.add('me-2');
+
+            const incrementBtn = document.createElement('button');
+            incrementBtn.textContent = '+';
+            incrementBtn.classList.add('btn', 'btn-success', 'btn-sm');
+            incrementBtn.addEventListener('click', () => {
+                incrementarCantidad(vino.id);
+            });
+
+            quantityWrapper.appendChild(decrementBtn);
+            quantityWrapper.appendChild(quantityText);
+            quantityWrapper.appendChild(incrementBtn);
+            quantityCell.appendChild(quantityWrapper);
+
+            const totalCell = document.createElement('td');
+            totalCell.textContent = `$${vino.precio * vino.cantidad}`;
+
             row.appendChild(imgCell);
             row.appendChild(nameCell);
             row.appendChild(priceCell);
+            row.appendChild(quantityCell);
+            row.appendChild(totalCell);
 
             carritoItems.appendChild(row);
-            total += vino.precio;
+            total += vino.precio * vino.cantidad;
         });
 
         sumaCarrito.textContent = `Total: $${total}`;
+    }
+
+    // Función para incrementar la cantidad de un vino
+    function incrementarCantidad(id) {
+        const vino = carrito.find(v => v.id === id);
+        if (vino) {
+            vino.cantidad++;
+            actualizarCarrito();
+        }
+    }
+
+    // Función para decrementar la cantidad de un vino
+    function decrementarCantidad(id) {
+        const vino = carrito.find(v => v.id === id);
+        if (vino && vino.cantidad > 1) {
+            vino.cantidad--;
+            actualizarCarrito();
+        } else if (vino && vino.cantidad === 1) {
+            const index = carrito.indexOf(vino);
+            carrito.splice(index, 1);
+            actualizarCarrito();
+        }
+    }
+
+    // Función para actualizar el carrito en el localStorage y en la interfaz
+    function actualizarCarrito() {
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        mostrarCarrito();
     }
 
     // Función para finalizar la compra
@@ -48,8 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let listaVinos = "\n";
         let sumaCarrito = 0;
         carrito.forEach(vino => {
-            listaVinos += `${vino.nombre} - $${vino.precio}\n`;
-            sumaCarrito += vino.precio;
+            listaVinos += `${vino.nombre} - $${vino.precio} x ${vino.cantidad}\n`;
+            sumaCarrito += vino.precio * vino.cantidad;
         });
 
         const fechaActual = new Date();
