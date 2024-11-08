@@ -129,3 +129,7 @@ class Tienda {
 // Crear una instancia de Tienda con los datos de vinos.js
 const tienda = new Tienda(vinos);
 tienda.iniciarTienda();
+
+
+/// teng que hacer que el carrito se muestre en la pagina de carrito.html
+  
