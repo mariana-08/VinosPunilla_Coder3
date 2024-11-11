@@ -1,3 +1,4 @@
+//
 class Tienda {
     constructor(vinos) {
         this.vinos = vinos;
@@ -6,6 +7,7 @@ class Tienda {
         this.actualizarContadorCarrito();
     }
 
+    // Método para iniciar la tienda
     iniciarTienda() {
         alert("Bienvenidos a Vinos Punilla. \n Ingresa tu año de nacimiento para continuar");
 
@@ -18,16 +20,18 @@ class Tienda {
             alert("Debes ser mayor de 18 años para ingresar a la tienda. Recarga la página.");
         }
 
-        // Agregar eventos a los selectores de orden y filtro
+        // Agregar eventos a los selectores de orden y filtro por precio
         document.getElementById('ordenar-precios').addEventListener('change', (event) => {
             this.ordenarVinos(event.target.value);
         });
 
+        // Agregar eventos a los selectores de orden y filtro por bodega
         document.getElementById('filtrar-bodega').addEventListener('change', (event) => {
             this.filtrarPorBodega(event.target.value);
         });
     }
 
+    // Método para validar la edad del usuario
     validarEdad(anioNacimientoIng) {
         const anioNacimiento = parseInt(anioNacimientoIng);
         const anioActual = new Date().getFullYear();
@@ -36,11 +40,13 @@ class Tienda {
         return !isNaN(anioNacimiento) && edad >= 18;
     }
 
+    // Método para mostrar los vinos en la pagina
     mostrarVinos(vinos = this.vinos) {
         const contenedor = document.querySelector('.contenedor-vinos');
         const plantilla = document.querySelector('.plantilla-vino');
         contenedor.innerHTML = ''; // Limpiar el contenedor antes de mostrar los vinos
 
+        // Recorre los vinos y agrega al contenedor
         vinos.forEach(vino => {
             const vinoDiv = plantilla.cloneNode(true);
             vinoDiv.classList.remove('d-none');
@@ -69,6 +75,7 @@ class Tienda {
         });
     }
 
+    //metodo para agregar al carrito
     agregarAlCarrito(id) {
         const vino = this.vinos.find(v => v.id === id);
         if (vino) {
@@ -84,10 +91,12 @@ class Tienda {
         }
     }
 
+    // Método para actualizar el contador del carrito
     actualizarContadorCarrito() {
         this.contadorCarrito.textContent = this.carrito.reduce((acc, vino) => acc + vino.cantidad, 0);
     }
 
+    // Método para ordenar los vinos por precio Llama al método filtrarPrecios con el parámetro ascendente o descendente
     ordenarVinos(orden) {
         if (orden === 'asc') {
             this.filtrarPrecios(true);
@@ -96,9 +105,9 @@ class Tienda {
         } else {
             this.mostrarVinos(this.vinos);
         }
-    }
+    } // cuando el usuario selecciona una opción de ordenamiento, se llama al método ordenarVinos con el valor del select como parámetro.
 
-    // Método para filtrar los vinos por precio
+    // Método para filtrar los vinos por precio / realiza el ordenamiento de los vinos y luego actualiza la vista  llamando a mostrarVinos.
     filtrarPrecios(ascendente) {
         const preciosOrdenados = this.vinos.sort((a, b) => {
             return ascendente ? a.precio - b.precio : b.precio - a.precio;

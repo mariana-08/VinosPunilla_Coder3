@@ -121,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         carrito.length = 0;
     }
 
+    // Mostrar el carrito
     mostrarCarrito();
     finalizarCompraBtn.addEventListener('click', finalizarCompra);
 
