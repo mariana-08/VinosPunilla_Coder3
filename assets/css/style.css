@@ -669,8 +669,43 @@ section#carrito-vinos {
   font-size: 1.5rem;
   font-weight: 600;
 }
+.filtros {
+  font-family: "Spectral";
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-
+.filtros h4 {
+  margin-bottom: 15px;
+}
+.filtros h3 {
+  color: #414c64;
+  font-size: 1.5rem;
+}
+label.form-label {
+  font-family: "Spectral";
+  color: #414c64;
+}
+.filtros .form-select {
+  margin-bottom: 10px;
+  color: #414c64;
+}
+select#filtrar-bodega {
+  font-family: "Spectral";
+  color: #414c64;
+}
+select#ordenar-precios {
+  font-family: "Spectral";
+  color: #414c64;
+}
+.form-select:focus {
+  border-color: #780A2F;
+  box-shadow: 2px 2px 2px 0px rgba(120,10,47,0.75);
+  -webkit-box-shadow: 2px 2px 2px 0px rgba(120,10,47,0.75);
+  -moz-box-shadow: 2px 2px 2px 0px rgba(120,10,47,0.75);
+}
 .btn-comprar {
   display: flex;
   align-items: center;
@@ -706,38 +741,6 @@ section#carrito-vinos {
 #vinos a.btn-agregar.agregar:hover {
   background: #701030;
 }
-/* filtro bodega */
-.vinos #bodega-filters {
-  padding: 0;
-  margin: 0 auto 25px auto;
-  list-style: none;
-  text-align: center;
-  border-radius: 50px;
-}
-
-.vinos #bodega-filters li {
-  cursor: pointer;
-  display: inline-block;
-  padding: 8px 18px 10px 18px;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  color: #444444;
-  margin: 0 3px 10px 3px;
-  transition: all ease-in-out 0.3s;
-  background: #fafafc;
-  border-radius: 50px;
-}
-
-.vinos #bodega-filters li:hover,
-.vinos #bodega-filters li.filter-active {
-  color: #fff;
-  background: #701030;
-}
-
-.vinos #bodega-filters li:last-child {
-  margin-right: 0;
-}
 
 
 /* dentro de carrito.html */
@@ -752,6 +755,7 @@ section#carrito-vinos {
 }
 .resumen-compra {
   padding-top: 1rem;
+  padding-bottom: 1rem;
   border-radius: 20px;
   border: 1px solid #414c64;
   text-align: center;

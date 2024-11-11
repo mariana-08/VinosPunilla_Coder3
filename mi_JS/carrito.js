@@ -111,23 +111,17 @@ document.addEventListener('DOMContentLoaded', () => {
         carrito.forEach(vino => {
             listaVinos += `${vino.nombre} - $${vino.precio} x ${vino.cantidad}\n`;
             sumaCarrito += vino.precio * vino.cantidad;
-        });
-
-        const fechaActual = new Date();
-        alert(`Compraste:\n${listaVinos}\nPrecio total: $${sumaCarrito}\nFecha y hora actual: ${fechaActual.toLocaleString()}`);
-
-        // Vaciar el carrito después de la compra
+        }
+        );
+        listaVinos += `\nTotal: $${sumaCarrito}`;
+        alert(`Lista de vinos en el carrito:\n${listaVinos}\n¡Gracias por tu compra!`); 
         localStorage.removeItem('carrito');
         carritoItems.innerHTML = '';
         sumaCarrito.textContent = 'Total: $0';
-
-        // Redirigir al index.html
-        window.location.href = 'index.html';
+        carrito.length = 0;
     }
 
-    // Mostrar el carrito al cargar la página
     mostrarCarrito();
-
-    // Agregar evento al botón de finalizar compra
     finalizarCompraBtn.addEventListener('click', finalizarCompra);
+
 });

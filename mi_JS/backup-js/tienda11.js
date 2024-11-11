@@ -1,9 +1,7 @@
 class Tienda {
     constructor(vinos) {
         this.vinos = vinos;
-        this.carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-        this.contadorCarrito = document.getElementById('carrito-contador');
-        this.actualizarContadorCarrito();
+        this.carrito = [];
     }
 
     iniciarTienda() {
@@ -17,15 +15,6 @@ class Tienda {
         } else {
             alert("Debes ser mayor de 18 años para ingresar a la tienda. Recarga la página.");
         }
-
-        // Agregar eventos a los selectores de orden y filtro
-        document.getElementById('ordenar-precios').addEventListener('change', (event) => {
-            this.ordenarVinos(event.target.value);
-        });
-
-        document.getElementById('filtrar-bodega').addEventListener('change', (event) => {
-            this.filtrarPorBodega(event.target.value);
-        });
     }
 
     validarEdad(anioNacimientoIng) {
@@ -67,38 +56,46 @@ class Tienda {
                 this.agregarAlCarrito(id);
             });
         });
+
+        document.querySelector('.btn-comprar').addEventListener('click', (event) => {
+            event.preventDefault();
+            this.comprarAhora();
+        });
+
+        document.getElementById('filtrar-precios').addEventListener('click', () => {
+            this.selecionarOrden();
+        });
     }
 
     agregarAlCarrito(id) {
         const vino = this.vinos.find(v => v.id === id);
         if (vino) {
-            const vinoEnCarrito = this.carrito.find(v => v.id === id);
-            if (vinoEnCarrito) {
-                vinoEnCarrito.cantidad++;
-            } else {
-                this.carrito.push({ ...vino });
-            }
+            this.carrito.push(vino);
             alert(`${vino.nombre} ha sido agregado al carrito.\nPrecio: $${vino.precio}`);
-            this.actualizarContadorCarrito();
-            localStorage.setItem('carrito', JSON.stringify(this.carrito));
         }
     }
 
-    actualizarContadorCarrito() {
-        this.contadorCarrito.textContent = this.carrito.reduce((acc, vino) => acc + vino.cantidad, 0);
+    comprarAhora() {
+        if (this.carrito.length === 0) {
+            alert("No tienes productos en el carrito.");
+            return;
+        }
+
+        localStorage.setItem('carrito', JSON.stringify(this.carrito));
+        window.location.href = 'carrito.html';
     }
 
-    ordenarVinos(orden) {
-        if (orden === 'asc') {
+    selecionarOrden() {
+        const orden = prompt("Selecciona el orden: \n A) de menor a mayor. \n B) de mayor a menor.").toLowerCase();
+        if (orden === "a") {
             this.filtrarPrecios(true);
-        } else if (orden === 'desc') {
+        } else if (orden === "b") {
             this.filtrarPrecios(false);
         } else {
-            this.mostrarVinos(this.vinos);
+            alert("Opción no válida. Inténtalo de nuevo.");
         }
     }
 
-    // Método para filtrar los vinos por precio
     filtrarPrecios(ascendente) {
         const preciosOrdenados = this.vinos.sort((a, b) => {
             return ascendente ? a.precio - b.precio : b.precio - a.precio;
@@ -106,19 +103,24 @@ class Tienda {
         this.mostrarVinos(preciosOrdenados);
     }
 
-    // Método para filtrar los vinos por bodega
-    filtrarPorBodega(bodega) {
-        if (bodega === "") {
-            this.mostrarVinos(this.vinos);
+    mostrarCarrito() {
+        if (this.carrito.length === 0) {
+            alert("No tienes vinos en el carrito.");
+            return;
         } else {
-            const vinosFiltrados = this.vinos.filter(vino => vino.bodega === bodega);
-            this.mostrarVinos(vinosFiltrados);
+            let lista_vinos = "Lista con detalle de cosecha:\n";
+            let sumaCarrito = 0;
+            this.carrito.forEach(vino => {
+                lista_vinos += vino.nombre + ". Tiempo de cosecha: " + vino.calcularAniosCosecha() + " años\n";
+                sumaCarrito += vino.precio;
+            });
+            const fechaActual = new Date();
+            alert("Compraste:\n" + lista_vinos + "\nPrecio total: $" + sumaCarrito + "\nFecha y hora actual: " + fechaActual.toLocaleString());
         }
     }
-
 }
-
 
 // Crear una instancia de Tienda con los datos de vinos.js
 const tienda = new Tienda(vinos);
 tienda.iniciarTienda();
+
