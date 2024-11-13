@@ -5,6 +5,7 @@ class Tienda {
         this.carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         this.contadorCarrito = document.getElementById('carrito-contador');
         this.actualizarContadorCarrito();
+        this.vinosfiltrados = [];
     }
 
     // Método para iniciar la tienda
@@ -108,8 +109,9 @@ class Tienda {
     } // cuando el usuario selecciona una opción de ordenamiento, se llama al método ordenarVinos con el valor del select como parámetro.
 
     // Método para filtrar los vinos por precio / realiza el ordenamiento de los vinos y luego actualiza la vista  llamando a mostrarVinos.
-    filtrarPrecios(ascendente) {
-        const preciosOrdenados = this.vinos.sort((a, b) => {
+    filtrarPrecios(ascendente) {        
+        let coleccion = this.vinosFiltrados.length >0 ? this.vinosFiltrados : this.vinos;
+        const preciosOrdenados = coleccion.sort((a, b) => {
             return ascendente ? a.precio - b.precio : b.precio - a.precio;
         });
         this.mostrarVinos(preciosOrdenados);
@@ -118,10 +120,15 @@ class Tienda {
     // Método para filtrar los vinos por bodega
     filtrarPorBodega(bodega) {
         if (bodega === "") {
+            this.vinosFiltrados = [];
             this.mostrarVinos(this.vinos);
-        } else {
-            const vinosFiltrados = this.vinos.filter(vino => vino.bodega === bodega);
-            this.mostrarVinos(vinosFiltrados);
+        } else { 
+
+            this.vinosFiltrados = this.vinos.filter(vino => vino.bodega === bodega);
+
+           let orden = document.getElementById('ordenar-precios').value;
+            this.ordenarVinos(orden);
+            // this.mostrarVinos(vinosFiltrados);
         }
     }
 
