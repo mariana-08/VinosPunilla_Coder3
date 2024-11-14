@@ -1,0 +1,4 @@
+Walter, hice la entrega el lunes para la preentrega 3  pero justo hoy miercoles en el after le mostre al profesor mi filtro y me sugirio mejorarlo, si bien funcionaba no tenia el metodo de filtrar el precio habiendo seleccionado la bodega.
+antes hacia el filtro por bodega, y parte por precio del total de vinos, eso hablando con Nico dijimos de mejorarlo. para q al seleccionar una bodega despues el filtro de precio funcione con esos vinos q se ven. 
+Lo modifique y mi idea era armar la carpeta VinosPunilla_Coder4 pero no me di cuenta y en la boragin termine haciendo el push sobre el  VinosPunilla_Coder3 que es el que aun no fue corregido. es por eso Que arme este leer.txt
+no queria modificar sobre algo q aun no esta corregido y que parezca trampa queria guardarlo para la carpeta VinosPunilla_Coder4 pero me equivoque ....
